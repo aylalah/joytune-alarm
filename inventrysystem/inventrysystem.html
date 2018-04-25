@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>kowope inventory system</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="bootstrap4/css/bootstrap.css">
+	<style type="text/css">
+		img{
+			width: 120px;
+			height: 90px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-feild mt-4">
+		<h2 align="center">KOWOPE INVENTORY SYSTEM</h2>
+		<div class="row">
+			<div class="col-md-8">
+			<table class="table table-border table-hover">
+			<thead>
+				<tr>
+					<th>S/N</th>
+					<th>P.Image</th>
+					<th>P.Name</th>
+					<th>Q.on Hand</th>
+					<th>Unit cost</th>
+					<th>Order</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td><img onmouseover="show('a')" src="img/ago.png" id="a1"> </td>
+					<td>wrist watch </td>
+					<td id="q1">58</td>
+					<td id="cost1">12000</td>
+					<td><input oninput="disp1()" type="text" name="ago" id="order1"></td>
+					<td id="total1"></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td><img onmouseover="show('b')" src="img/bag.png" id="b1"></td>
+					<td>Bags</td>
+					<td id="q2">35</td>
+					<td id="cost2">8000</td>
+					<td><input oninput="disp2()" type="text" name="bag" id="order2"></td>
+					<td id="total2"></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td><img onmouseover="show('c')" src="img/phone.png" id="c1"></td>
+					<td>Phone</td>
+					<td id="q3">64</td>
+					<td id="cost3">58000</td>>
+
+					<td><input oninput="disp3()" type="text" name="phone" id="order3"></td>
+					<td id="total3"></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td><img onmouseover="show('d')" src="img/laptop.png" id="d1"></td>
+					<td>Laptop system</td>
+					<td id="q4">16</td>
+					<td id="cost4">150000</td>
+					<td><input oninput="disp4()" type="text" name="laptop" id="order4"></td>
+					<td id="total4"></td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td><img onmouseover="show('e')" src="img/vr.png" id="e1"></td>
+					<td>3D VR</td>
+					<td id="q5">28	</td>
+					<td id="cost5">80000</td>
+					<td><input oninput="disp5()" type="text" name="vr" id="order5"></td>
+					<td id="total5"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td id="qtotal"></td>
+					<td id="costtotal"></td>
+					<td id="odtotal"></td>
+					<td id="total6"></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<div class="col-md-4 mt-4">
+			<img src="" id="cover" style="width: 500px; height: 400px">
+		</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+	<script type="text/javascript">
+		function show(f)
+		{
+			if (f=="b") {document.getElementById('cover').src=document.getElementById('b1').src }
+			if (f=="a") {document.getElementById('cover').src=document.getElementById('a1').src }
+			if (f=="c") {document.getElementById('cover').src=document.getElementById('c1').src }
+			if (f=="d") {document.getElementById('cover').src=document.getElementById('d1').src }
+			if (f=="e") {document.getElementById('cover').src=document.getElementById('e1').src }	
+		}
+
+		function disp1() 
+		{
+			if (order1.value>=+"58") {alert("out of stock")}
+			document.getElementById('q1').innerHTML=58-order1.value
+			document.getElementById('total1').innerHTML=order1.value*document.getElementById('cost1').innerHTML 
+			document.getElementById('qtotal').innerHTML= parseInt(document.getElementById('q1').innerHTML)+ parseInt(document.getElementById('q2').innerHTML)+parseInt(document.getElementById('q3').innerHTML)+ parseInt(document.getElementById('q4').innerHTML)+ parseInt(document.getElementById('q5').innerHTML)
+			document.getElementById('costtotal').innerHTML= parseInt(document.getElementById('cost1').innerHTML)+ parseInt(document.getElementById('cost2').innerHTML)+parseInt(document.getElementById('cost3').innerHTML)+ parseInt(document.getElementById('cost4').innerHTML)+ parseInt(document.getElementById('cost5').innerHTML)
+			document.getElementById('odtotal').innerHTML= parseInt(document.getElementById('order1').value)+parseInt(order2.value)+parseInt(order3.value)+parseInt(order4.value)+parseInt(order5.value)
+			document.getElementById('total6').innerHTML= parseInt(document.getElementById('total1').innerHTML)+ parseInt(document.getElementById('total2').innerHTML)+parseInt(document.getElementById('total3').innerHTML)+ parseInt(document.getElementById('total4').innerHTML)+ parseInt(document.getElementById('total5').innerHTML)
+			if (document.getElementById('odtotal').innerHTML=="NaN") {document.getElementById('odtotal').innerHTML="0"}
+			if (document.getElementById('total6').innerHTML=="NaN") {document.getElementById('total6').innerHTML="0"}
+		}
+
+		function disp2() 
+		{
+			if (order2.value>=+"35") {alert("out of stock")}
+			document.getElementById('q2').innerHTML=35-order2.value
+			document.getElementById('total2').innerHTML=order2.value*document.getElementById('cost2').innerHTML 
+			document.getElementById('qtotal').innerHTML= parseInt(document.getElementById('q1').innerHTML)+ parseInt(document.getElementById('q2').innerHTML)+parseInt(document.getElementById('q3').innerHTML)+ parseInt(document.getElementById('q4').innerHTML)+ parseInt(document.getElementById('q5').innerHTML)
+			document.getElementById('qtotal').innerHTML= parseInt(document.getElementById('q1').innerHTML)+ parseInt(document.getElementById('q2').innerHTML)+parseInt(document.getElementById('q3').innerHTML)+ parseInt(document.getElementById('q4').innerHTML)+ parseInt(document.getElementById('q5').innerHTML)
+			document.getElementById('odtotal').innerHTML= parseInt(order1.value)+parseInt(order2.value)+parseInt(order3.value)+parseInt(order4.value)+parseInt(order5.value)
+			document.getElementById('total6').innerHTML= parseInt(document.getElementById('total1').innerHTML)+ parseInt(document.getElementById('total2').innerHTML)+parseInt(document.getElementById('total3').innerHTML)+ parseInt(document.getElementById('total4').innerHTML)+ parseInt(document.getElementById('total5').innerHTML)
+			if (document.getElementById('odtotal').innerHTML=="NaN") {document.getElementById('odtotal').innerHTML="0"}
+			if (document.getElementById('total6').innerHTML=="NaN") {document.getElementById('total6').innerHTML="0"}
+		}
+		function disp3() 
+		{
+			if (order3.value>=+"64") {alert("out of stock")}
+			document.getElementById('q3').innerHTML=64-order3.value
+			document.getElementById('total3').innerHTML=order3.value*document.getElementById('cost3').innerHTML 
+			document.getElementById('qtotal').innerHTML= parseInt(document.getElementById('q1').innerHTML)+ parseInt(document.getElementById('q2').innerHTML)+parseInt(document.getElementById('q3').innerHTML)+ parseInt(document.getElementById('q4').innerHTML)+ parseInt(document.getElementById('q5').innerHTML)
+			document.getElementById('qtotal').innerHTML= parseInt(document.getElementById('q1').innerHTML)+ parseInt(document.getElementById('q2').innerHTML)+parseInt(document.getElementById('q3').innerHTML)+ parseInt(document.getElementById('q4').innerHTML)+ parseInt(document.getElementById('q5').innerHTML)
+			document.getElementById('odtotal').innerHTML= parseInt(order1.value)+parseInt(order2.value)+parseInt(order3.value)+parseInt(order4.value)+parseInt(order5.value)
+			document.getElementById('total6').innerHTML= parseInt(document.getElementById('total1').innerHTML)+ parseInt(document.getElementById('total2').innerHTML)+parseInt(document.getElementById('total3').innerHTML)+ parseInt(document.getElementById('total4').innerHTML)+ parseInt(document.getElementById('total5').innerHTML)
+			if (document.getElementById('odtotal').innerHTML=="NaN") {document.getElementById('odtotal').innerHTML="0"}
+			if (document.getElementById('total6').innerHTML=="NaN") {document.getElementById('total6').innerHTML="0"}
+		}
+		function disp4() 
+		{
+			if (order4.value>=+"16") {alert("out of stock")}
+			document.getElementById('q4').innerHTML=16-order4.value
+			document.getElementById('total4').innerHTML=order4.value*document.getElementById('cost4').innerHTML
+			document.getElementById('qtotal').innerHTML= parseInt(document.getElementById('q1').innerHTML)+ parseInt(document.getElementById('q2').innerHTML)+parseInt(document.getElementById('q3').innerHTML)+ parseInt(document.getElementById('q4').innerHTML)+ parseInt(document.getElementById('q5').innerHTML) 
+			document.getElementById('qtotal').innerHTML= parseInt(document.getElementById('q1').innerHTML)+ parseInt(document.getElementById('q2').innerHTML)+parseInt(document.getElementById('q3').innerHTML)+ parseInt(document.getElementById('q4').innerHTML)+ parseInt(document.getElementById('q5').innerHTML)
+			document.getElementById('odtotal').innerHTML= parseInt(order1.value)+parseInt(order2.value)+parseInt(order3.value)+parseInt(order4.value)+parseInt(order5.value)
+			document.getElementById('total6').innerHTML= parseInt(document.getElementById('total1').innerHTML)+ parseInt(document.getElementById('total2').innerHTML)+parseInt(document.getElementById('total3').innerHTML)+ parseInt(document.getElementById('total4').innerHTML)+ parseInt(document.getElementById('total5').innerHTML)
+			if (document.getElementById('odtotal').innerHTML=="NaN") {document.getElementById('odtotal').innerHTML="0"}
+			if (document.getElementById('total6').innerHTML=="NaN") {document.getElementById('total6').innerHTML="0"}
+		}
+		function disp5() 
+		{
+			if (order5.value>=+"28") {alert("out of stock")}
+			document.getElementById('q5').innerHTML=28-order5.value
+			document.getElementById('total5').innerHTML=order5.value*document.getElementById('cost5').innerHTML
+			document.getElementById('qtotal').innerHTML= parseInt(document.getElementById('q1').innerHTML)+ parseInt(document.getElementById('q2').innerHTML)+parseInt(document.getElementById('q3').innerHTML)+ parseInt(document.getElementById('q4').innerHTML)+ parseInt(document.getElementById('q5').innerHTML) 
+			document.getElementById('qtotal').innerHTML= parseInt(document.getElementById('q1').innerHTML)+ parseInt(document.getElementById('q2').innerHTML)+parseInt(document.getElementById('q3').innerHTML)+ parseInt(document.getElementById('q4').innerHTML)+ parseInt(document.getElementById('q5').innerHTML)
+			document.getElementById('odtotal').innerHTML= parseInt(order1.value)+parseInt(order2.value)+parseInt(order3.value)+parseInt(order4.value)+parseInt(order5.value)
+			document.getElementById('total6').innerHTML= parseInt(document.getElementById('total1').innerHTML)+ parseInt(document.getElementById('total2').innerHTML)+parseInt(document.getElementById('total3').innerHTML)+ parseInt(document.getElementById('total4').innerHTML)+ parseInt(document.getElementById('total5').innerHTML)
+			if (document.getElementById('odtotal').innerHTML=="NaN") {document.getElementById('odtotal').innerHTML="0"}
+			if (document.getElementById('total6').innerHTML=="NaN") {document.getElementById('total6').innerHTML="0"}
+		}
+		
+	</script>
